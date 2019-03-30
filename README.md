@@ -1,6 +1,7 @@
 ## get-direct-link
 
-This is where you include your WebPart documentation.
+![alt text](https://sharepointhd.files.wordpress.com/2019/03/ezgif.com-video-to-gif-2.gif)
+Sample SharePoint Framework (SPFx) solution which gives the end-user the ability to just get a copy link with ID that doesnt break item level permission and it also generates url for pdf with id. This is helpful when document is renamed and moved in same site collection, thus not breaking page linking.This is done using a CommandSet.
 
 ### Building the code
 
@@ -25,4 +26,4 @@ gulp serve - TODO
 gulp bundle - TODO
 gulp package-solution - TODO
 
-![alt text](https://sharepointhd.files.wordpress.com/2019/03/ezgif.com-video-to-gif-2.gif)
+
