@@ -24,3 +24,5 @@ gulp test - TODO
 gulp serve - TODO
 gulp bundle - TODO
 gulp package-solution - TODO
+
+![alt text](https://sharepointhd.files.wordpress.com/2019/03/ezgif.com-video-to-gif-2.gif)
