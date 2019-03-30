@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="GetDirectLink"
+        RegistrationId="101"
+        RegistrationType="List"
+        Location="ClientSideExtension.ListViewCommandSet"
+        ClientSideComponentId="5bbcd7f3-0380-4029-b9c8-53754e20c8a1"
+        ClientSideComponentProperties="{}">
+    </CustomAction>
+     
+</Elements>
