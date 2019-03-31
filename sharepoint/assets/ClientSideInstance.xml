@@ -3,7 +3,7 @@
     <ClientSideComponentInstance
         Title="GetDirectLink"
         Location="ClientSideExtension.ListViewCommandSet"
-        ListTemplateId="101"
+        ListTemplateId="119"
         Properties="{}"
         ComponentId="5bbcd7f3-0380-4029-b9c8-53754e20c8a1" />
 </Elements>
