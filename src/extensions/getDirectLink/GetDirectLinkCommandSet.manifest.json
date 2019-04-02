@@ -16,7 +16,7 @@
   "requiresCustomScript": false,
 
   "items": {
-    "COMMAND_1": {
+    "Command_DirectLink": {
       "title": { "default": "Copy Direct Link" },
       "iconImageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVEhLtdY9aNVQAIbhqIgoluIggohWB1unuomD4uAP0qEuhSriqJsiQqGKP6AIHV0EFd26dHMSHIrgUOhokYJWQXQSKdX6r1Tft+bAzTEnaWv84KE3557c7ybNSW6WZyvu4yN+JUxgH5YcS2ZQ9uGxbziOJcUj8UOGsc6BRDZiLZwTa0NtZjEHd0hlN8YRH2GrJ9iFZJzkqUtlL37CeV8xneCX/YQDKE1d0VM45xpWOpDIIMKX6XUgTlXRevj+OyxzoCJH4Fx9Rx8KqSraDN/3/NelB6FInu7Ckf2vIrkc9mM+DjRRtAFjeJF7C/f1JuBabayoLFfh/tfdaLJoTf435Bjc/6YbTRS5dl7DuQ8QChst2oFXuIRuPMc5mMaK2rEHrreQR3Bxm0aKPF0uZBfne3ThArwNbYf556LD8FZzEStwCEP4kr8O+avIa70sZUUH4UIcwC2cxG3EJaZQ9Cbf2OlGlLjI+53zL89vZdlZuDgfw0dJnEJRWFQvcQreDOUtJS7ymdX6pfw/bfvzsjSFolV4mA+08pItO3XOncIoPiP5/CGFIuMpOYp7GMn5ZiiaRMhqnMEVdDpQkRMoFKXi0Xp1/cAmBxaZO7DIy742XllOfobTCP/DKp6yu/Dx7m+SLaiNv3Bc7ZYt1gdYvOAsRz9uwCNciPPoAMmy34kk568ths2HAAAAAElFTkSuQmCC",
       "type": "command"

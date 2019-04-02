@@ -6,7 +6,6 @@ import {
   IListViewCommandSetListViewUpdatedParameters,
   IListViewCommandSetExecuteEventParameters
 } from '@microsoft/sp-listview-extensibility';
-import { Dialog } from '@microsoft/sp-dialog';
 import GetDirectLink from './components/GetDirectLink';
 import { sp, SharingInformation } from "@pnp/sp";
 import * as strings from 'GetDirectLinkCommandSetStrings';
@@ -32,28 +31,30 @@ export default class GetDirectLinkCommandSet extends BaseListViewCommandSet<IGet
 
   @override
   public onListViewUpdated(event: IListViewCommandSetListViewUpdatedParameters): void {
-    const compareOneCommand: Command = this.tryGetCommand('COMMAND_1');
+    debugger;
+    const compareOneCommand: Command = this.tryGetCommand('Command_DirectLink');
     if (compareOneCommand) {
       // This command should be hidden unless exactly one row is selected.
       compareOneCommand.visible = event.selectedRows.length === 1;
+      compareOneCommand.title = strings.Command_DirectLink;
+
     }
   }
 
   @override
   public async onExecute(event: IListViewCommandSetExecuteEventParameters): Promise<void> {
     switch (event.itemId) {
-      case 'COMMAND_1':
-        // let siteUrl = this.context.pageContext.site.absoluteUrl;
-        // let endIndex = siteUrl.lastIndexOf('/sites/');
-        // let rootSiteUrl = siteUrl.substring(0, endIndex);
+      case 'Command_DirectLink':
+        //Gets Full Site Url      
         let relativeUrl = event.selectedRows[0].getValueByName('FileRef');
+        //Gets FileName
         let fileName = event.selectedRows[0].getValueByName('FileLeafRef');
+        //Gets FileExtension
         let fileExtension = fileName.split(".")[1];
-        let linkTo=fileName.length > 20 ? fileName.substring(0,8)+"..." + 
-        fileName.substring(fileName.length-8, fileName.length)    :
-        fileName;
-
+        //Gets the filename to display on dialog
+        let linkTo=fileName.length > 20 ? fileName.substring(0,8)+"..." + fileName.substring(fileName.length-8, fileName.length):fileName;
         let url;
+        //Returns file url with id
         if (fileExtension !== "pdf") {
           url = await sp.web.getFolderByServerRelativeUrl(relativeUrl)
             .getSharingInformation().then((result: SharingInformation) => {
@@ -63,12 +64,11 @@ export default class GetDirectLinkCommandSet extends BaseListViewCommandSet<IGet
             })
         }
         else {
-          url = await sp.web.getFileByServerRelativeUrl(relativeUrl).listItemAllFields.get().then((items => {
+          url = await sp.web.getFileByServerRelativeUrl(relativeUrl).listItemAllFields.select("ServerRedirectedEmbedUrl").get().then((items => {
             return (items.ServerRedirectedEmbedUrl);
           }))
         }
-        //let msg = url.hasOwnProperty("isHttpRequestError") ? url["message"] : ""
-        let msg = url["length"] > 255 ? "Url may not contain more than 255 chars" : "";
+        let msg = url["length"] > 255 ? strings.UrlMsg : "";
         const callout: GetDirectLink = new GetDirectLink();
         callout.fileName = linkTo;
         callout.absolutePath = url;
@@ -77,7 +77,7 @@ export default class GetDirectLinkCommandSet extends BaseListViewCommandSet<IGet
         callout.show();
         console.log("show")
         break;
-      default:
+        default:
         throw new Error('Unknown command');
     }
   }

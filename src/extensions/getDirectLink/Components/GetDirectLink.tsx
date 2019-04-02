@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BaseDialog } from '@microsoft/sp-dialog';
-import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
+import { Callout } from 'office-ui-fabric-react/lib/Callout';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
@@ -9,6 +9,7 @@ import styles from './GetDirectLinkCopy.module.scss'
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { TooltipHost } from 'office-ui-fabric-react/lib/Tooltip';
 import { getId } from 'office-ui-fabric-react/lib/Utilities';
+import * as strings from 'GetDirectLinkCommandSetStrings';
 
 
 interface IGetDirectLinkProps {
@@ -58,7 +59,7 @@ class GetDirectLinkContent extends
     public render(): JSX.Element {
       return (
           <div>
-            <Callout  
+            <Callout    
                 className="ms-CalloutExample-callout"
                 ariaLabelledBy={'callout-label-1'}
                 ariaDescribedBy={'callout-description-1'}
@@ -66,17 +67,19 @@ class GetDirectLinkContent extends
                 gapSpace={0}
                 target={this.props.domElement}
                 hidden={false}
+                calloutWidth={320}
+                preventDismissOnScroll={true}
                 setInitialFocus={true}                
                 onDismiss={this.onDismiss.bind(this)}>
                 <div className={styles.justALinkContentContainer}>
                     <div className={styles.iconContainer} ><Icon iconName="CheckMark" className={styles.icon} /></div>
                     <TooltipHost content={this.props.fileNameToolTip} id={this._hostId} calloutProps={{ gapSpace: 0 }}>
-          <div aria-labelledby={this._hostId} className={styles.fileName}>Link to '{this.props.fileName}' copied</div>
+          <div aria-labelledby={this._hostId} className={styles.fileName}>{strings.LinkTo} '{this.props.fileName}' {strings.Copied}</div>
         </TooltipHost>
                    
                     <div className={styles.shareContainer}>
                         <TextField className={styles.filePathTextBox} value={this.props.absolutePath} />
-                        <PrimaryButton text="Copy" onClick={this.btnCopyCLicked.bind(this)}
+                        <PrimaryButton text={strings.Copy} onClick={this.btnCopyCLicked.bind(this)}
                         />
                     </div>
                     <Label className="ms-fontColor-red">{this.props.msg}</Label>                    

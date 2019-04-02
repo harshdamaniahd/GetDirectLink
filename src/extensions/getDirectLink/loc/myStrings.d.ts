@@ -1,6 +1,10 @@
 declare interface IGetDirectLinkCommandSetStrings {
-  Command1: string;
-  Command2: string;
+  Command_DirectLink: string;
+  Copy:string;
+  UrlMsg:string;
+  LinkTo:string;
+  Copied:string;
+
 }
 
 declare module 'GetDirectLinkCommandSetStrings' {
